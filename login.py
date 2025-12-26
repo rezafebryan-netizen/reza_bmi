@@ -10,7 +10,7 @@ def signup(username, password):
         hasil = True
         for i in membaca_data:  #diubah menjadi list
             if len(i) == 0: #cek agar tidak ada index error
-                pass
+                pass            
             elif username in i[0]:
                 print("Maaf, username ini sudah terpakai. Silahkan buat username yang berbeda")
                 hasil = False
@@ -56,21 +56,27 @@ def dashboard(username):
         print("5. Profile User") # optional
         print("0. Keluar")
 
-        menu = int(input("Pilih dari 0-5: "))
+        menu = input("Pilih dari 0-5: ")
 
         if menu == '0':
             print("\nSelamat Tinggal! Semoga Harimu Menyenangkan! ^_^ ")
             break
+
         elif menu == '1':
             bmi.kalkulator_bmi() # file bmi.py
+
         elif menu == '2':
             dr.Pilihan_Metode()# file dietrec.py
+
         elif menu == '3':
             pass # file reseppage.py
+
         elif menu == '4':
             pass # file calorytrack.py
-        elif menu == '5': #optional
-            pass # optional
+
+        elif menu == '5':
+            pass
+
         else:
             print("\nInvalid! Silahkan memasukkan angka dari 0-5\n")
     
@@ -91,7 +97,7 @@ def signup_login():
             while True:
                 username_input = input("Buat Username: ")
                 password_input = input("Buat Password: ")
-                cek_hasil = signup(username_input, password_input)
+                cek_hasil = signup(username_input, password_input, apakah_profile_sudah_dibuat = False)
 
                 if cek_hasil:
                     break
@@ -105,11 +111,14 @@ def signup_login():
                 if cek_login:
                     user = username_input
                     break
+
                 else:
                     print("Username atau password kamu salah, silahkan masukkan kembali!")
                     num += 1
+
             if num == 3:
                 print("Kamu salah Username atau Password 3 kali, jika kamu belum memiliki akun \nSilahkan Sign-up terlebih dahulu")
+
             if cek_login:
                 dashboard(user)
                 break
@@ -117,6 +126,7 @@ def signup_login():
         elif pilihan == '3':
             print("Selamat Tinggal! Semoga Harimu Menyenangkan! ^_^ ")
             break
+
         else:
             print("Invalid! \nDimohon untuk memasukkan angka 1, 2 atau 3")
 
