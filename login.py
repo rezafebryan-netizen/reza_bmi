@@ -117,6 +117,6 @@ def signup_login():
             print("Selamat Tinggal! Semoga Harimu Menyenangkan! ^_^ ")
             break
         else:
-            print("Invalid! \nDimohon untuk memasukkan angka 1, 2 atau 3")
+            print("Invalid! \nDimohon untuk memasukkan angka 1, 2 atau 0")
 
 signup_login()
