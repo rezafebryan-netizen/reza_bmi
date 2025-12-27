@@ -109,3 +109,6 @@ def menu(user):
         
         elif pilih == '0':
             break
+
+        else:
+            print("Pilihan anda tidak valid! Silahkan masukkan angka 1, 2, atau 0")
