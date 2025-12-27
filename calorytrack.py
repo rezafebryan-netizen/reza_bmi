@@ -3,6 +3,7 @@
 import csv
 import os
 from datetime import datetime
+import pandas as pd
 
 file_path = "List_kalori_per100gram.csv"
 
@@ -27,14 +28,22 @@ def Isi_catatan(user):
 
     catatan_path = f"folder_catatan/catatan_harian_{user}.txt"
 
-    print("\nMakanan||Kalori per 100 gram") 
-    with open(file_path, 'r') as file:
-        filenya = csv.reader(file)
-        for line in filenya:
-            if 'Makanan' == line[0]: #biar headnya nggak ke print
-                pass
-            else:
-                print(f"{line[0]}: {line[1]}")
+    print("=" * 50)
+    print("LIST MAKANAN DIBAWAH INI UNTUK PENYAJIAN 100GRAM")
+    print("=" * 50)
+    database = pd.read_csv(file_path)
+    print(database)
+    print("=" * 50)
+    
+    # print("\nMakanan||Kalori per 100 gram")                         # DIMODIFIKASI PAKE PANDAS
+    # with open(file_path, 'r') as file:                                # TETAP DISINI AJA BISI PANDASNYA ERROR
+    #     filenya = csv.reader(file)
+    #     for line in filenya:
+    #         if 'Makanan' == line[0]: #biar headnya nggak ke print
+    #             pass
+    #         else:
+    #             print(f"{line[0]}: {line[1]}")
+                
     print("\nMakanan apa saja yang kamu makan? (ketik 'sudah' di input makanan jika kamu sudah selesai memasukkan list makanan kamu)\n")
     
     list_makanan_user = []
